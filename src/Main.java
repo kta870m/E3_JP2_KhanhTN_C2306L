@@ -67,19 +67,23 @@ public class Main {
                         bookings.forEach(System.out::println);
                         break;
                     case 3:
-                        System.out.print("Enter Customer Name: ");
-                        String cusName = bf.readLine();
-                        System.out.print("Enter Phone Number: ");
-                        String cusNum = bf.readLine();
-                        System.out.print("Enter Room Id: ");
-                        String roomId = bf.readLine();
-                        System.out.println("=== Search By Customer Name ===");
-                        System.out.println(bs.findByCusName(cusName));
-                        System.out.println("=== Search By Customer Phone ===");
-                        bs.findByCustomerPhone(cusNum).forEach(System.out::println);
-                        System.out.println("=== Search By Room Id ===");
-                        bs.findByRoomId(roomId).forEach(System.out::println);
+                        System.out.print("Enter Customer Name | Customer Phone | RoomId: ");
+                        String keyword = bf.readLine();
+                        if(!bs.findByCusName(keyword).isEmpty()){
+                            bs.findByCusName(keyword).forEach(System.out::println);
+                            break;
+                        }
+                        if(!bs.findByCustomerPhone(keyword).isEmpty()){
+                            bs.findByCustomerPhone(keyword).forEach(System.out::println);
+                            break;
+                        }
+                        if(!bs.findByRoomId(keyword).isEmpty()){
+                            bs.findByRoomId(keyword).forEach(System.out::println);
+                            break;
+                        }
+                        System.out.println("No result was found");
                         break;
+
                     case 4:
                         bs.displayTotalRoomPrice();
                         break;
