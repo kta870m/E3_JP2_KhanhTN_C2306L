@@ -75,8 +75,7 @@ public class BookingService implements IGeneric<Booking>{
         Customer cus = null;
 
         try{
-            System.out.print("Enter Booking Id: ");
-            bookId = Integer.parseInt(bf.readLine());
+            bookId = bookings.size() + 1;
             do{
                 System.out.print("Enter Room Type: ");
                 roomId =  bf.readLine();
